@@ -68,18 +68,33 @@ public class App {
 
       }
 
-
-
         // input your solution here
-
-
-
-
 
 
 
     //todo Task 3
     public void printPyramid(){
+        final int lines = 6;
+
+        // every line:
+        for (int i = 1; i <= lines; i++)
+        {
+            // spaces:
+            for (int j = i; j <= lines - 1; j++) {
+                System.out.print(' ');
+            }
+
+            // stars:
+            for (int stars = 1; stars < 2*i; stars++) {
+                System.out.print('*');
+            }
+
+            System.out.print(System.lineSeparator());
+        }
+
+        // inspired by: https://www.techiedelight.com/de/c-program-print-pyramid-pattern/
+
+
         // input your solution here
     }
 
@@ -91,25 +106,69 @@ public class App {
     //todo Task 5
     public void marks(){
         // input your solution here
-        int mark;
+        double mark = 0;
         Scanner scanner = new Scanner(System.in);
-        int count = 0;
+        int count = 1;
+        int countFive = 0;
+        double sum = 0;
+
 
         do {
-            System.out.println("Mark " + count++);
+            System.out.print("Mark " + count + ": ");
             mark = scanner.nextInt();
-        } while (mark >= 1 && mark <= 5);
-        {
-
-        }
 
 
+            if (mark > 0 && mark < 6) {
+                count++;
+                sum = sum + mark;
+                if (mark == 5) {
+                    countFive++;
+                }
+            }
+
+            if (mark != 0 && (mark < 1 || mark > 5)) {
+                System.out.println("Invalid mark!");
+                System.out.print("Mark " + count + ": ");
+                mark = scanner.nextInt();
+
+            }
+
+        } while (mark != 0);
+
+        DecimalFormat f = new DecimalFormat("#0.00");
+
+        System.out.println("Average: " + f.format(sum / count));
+        System.out.println("Negative marks: " + countFive);
 
 
     }
 
     //todo Task 6
     public void happyNumbers(){
+        int n;
+        int s = 0;
+        System.out.print("n: ");
+        Scanner scan = new Scanner(System.in);
+        n = scan.nextInt();
+
+        while(n >= 10) {
+            while (n > 0) {
+                s = s + (n % 10)*(n % 10);
+                n = (n / 10);
+            }
+
+            n = s;
+            s = 0;
+        }
+        if(n== 1) {
+            System.out.println("Happy number!");
+
+        } else {
+            System.out.println("Sad number!");
+        }
+
+
+
         // input your solution here
     }
 
