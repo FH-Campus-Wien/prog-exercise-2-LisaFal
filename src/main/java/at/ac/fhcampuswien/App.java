@@ -108,15 +108,14 @@ public class App {
         // input your solution here
         double mark = 0;
         Scanner scanner = new Scanner(System.in);
-        int count = 1;
+        int count = 0;
         int countFive = 0;
         double sum = 0;
 
 
         do {
-            System.out.print("Mark " + count + ": ");
+            System.out.print("Mark " + (count + 1) + ": ");
             mark = scanner.nextInt();
-
 
             if (mark > 0 && mark < 6) {
                 count++;
@@ -126,19 +125,23 @@ public class App {
                 }
             }
 
+
             if (mark != 0 && (mark < 1 || mark > 5)) {
                 System.out.println("Invalid mark!");
-                System.out.print("Mark " + count + ": ");
-                mark = scanner.nextInt();
 
             }
 
         } while (mark != 0);
 
-        DecimalFormat f = new DecimalFormat("#0.00");
 
-        System.out.println("Average: " + f.format(sum / count));
-        System.out.println("Negative marks: " + countFive);
+        if (sum == 0) {
+            System.out.println("Average: 0.00");
+            System.out.println("Negative marks: 0");
+
+        } else {
+            DecimalFormat f = new DecimalFormat("#0.00");
+            System.out.println("Average: " + f.format(sum / count));
+            System.out.println("Negative marks: " + countFive); }
 
 
     }
