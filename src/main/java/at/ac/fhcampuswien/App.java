@@ -100,7 +100,79 @@ public class App {
 
     //todo Task 4
     public void printRhombus(){
-        // input your solution here
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("h: ");
+        final int h = scan.nextInt();
+        int space;
+        System.out.print("c: ");
+        char c = scan.next().charAt(0);
+
+        if (h % 2 == 0) {
+            System.out.println("Invalid number!");
+
+        } else {
+            //part1:
+            for (int zeilenwert = 0; zeilenwert <= (h / 2); zeilenwert++) {
+                // spaces:
+                for (space = zeilenwert; space < (h / 2); space++) {
+                    System.out.print("*");
+                }
+                //chars per line:
+                for (int character = 1; character <= 1; character++) {
+
+                    for (int charac = c - zeilenwert; charac <= c; charac++) {
+                        System.out.print((char) charac);
+                    }
+                }
+
+                // right part of part 1:
+                for (int rightchar = 1; rightchar <= 1; rightchar++) {
+
+                    for (int right = c - 1; right >= c - zeilenwert; right--) {
+
+                        System.out.print((char) right);
+                    }
+                }
+
+                System.out.println();
+            }
+
+            // part 2:
+            for (int zeilenwert2 = 1; zeilenwert2 <= (h / 2); zeilenwert2++) {
+                //spaces:
+                for (int space2 = 1; space2 <= zeilenwert2; space2++) {
+                    System.out.print("*");
+                }
+
+                //chars per line lower part:
+                for (int charakter2 = 1; charakter2 <= 1; charakter2++) {
+
+                    for (int char3 = c - (h / 2) + zeilenwert2; char3 <= c; char3++) {
+
+                        System.out.print((char) (char3));
+                    }
+                }
+                // chars per line lower part right side:
+                for (int i = 1; i <=1; i++) {
+                    for (int j = h/2; j <= i; j--) {
+                        System.out.print((char) (j));
+                    }
+
+                } System.out.println();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+// input your solution here
     }
 
     //todo Task 5
@@ -111,7 +183,6 @@ public class App {
         int count = 0;
         int countFive = 0;
         double sum = 0;
-
 
         do {
             System.out.print("Mark " + (count + 1) + ": ");
@@ -125,19 +196,15 @@ public class App {
                 }
             }
 
-
             if (mark != 0 && (mark < 1 || mark > 5)) {
                 System.out.println("Invalid mark!");
-
             }
 
         } while (mark != 0);
 
-
         if (sum == 0) {
             System.out.println("Average: 0.00");
             System.out.println("Negative marks: 0");
-
         } else {
             DecimalFormat f = new DecimalFormat("#0.00");
             System.out.println("Average: " + f.format(sum / count));
@@ -159,18 +226,15 @@ public class App {
                 s = s + (n % 10)*(n % 10);
                 n = (n / 10);
             }
-
             n = s;
             s = 0;
         }
-        if(n== 1) {
+        if(n==1) {
             System.out.println("Happy number!");
 
         } else {
             System.out.println("Sad number!");
         }
-
-
 
         // input your solution here
     }
